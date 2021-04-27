@@ -58,6 +58,7 @@ function App() {
   }));
   const handleSubmit = event => {
     event.preventDefault();
+    setHelper(d => ({...d, loading:!helper.loading}));
   }
   return (
     <div>
@@ -108,6 +109,9 @@ function App() {
               <Typography component="h3" variant="h4" align="center">
                 Register new User
               </Typography>
+              <div style={{ marginTop: 10, marginBottom:10 }}>
+              <Button color="primary" variant="contained" onClick={() => setHelper(d => ({...d, loading:!helper.loading}))}>Toggle overlay</Button>
+              </div>
               <Overlay show={helper.loading} variant={overlayInfo.variant} opacity={overlayInfo.opacity}>
               <Grid container>
                 
@@ -145,7 +149,7 @@ function App() {
                         <Grid item xs={6}>
                         </Grid>
                         <Grid item xs={6}>
-                          <Button disabled={helper.loading} variant="contained" type="submit" color="secondary" fullWidth>
+                          <Button variant="contained" type="submit" color="secondary" fullWidth>
                             Register
                           </Button>
                         </Grid>

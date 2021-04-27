@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyles = makeStyles(theme => ({
     backdrop1:{
         position: 'absolute',
-        zIndex: 1,
+        zIndex: 200,
         verticalAlign: 'middle',
         textAlign:'center'
     },
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         top: '50%',
         right: '50%',
-        zIndex: 2,
+        zIndex: 201,
         opacity: 1,
         transform: 'translate(50%,-50%)',
         color: 'white'
@@ -37,7 +37,7 @@ function Overlay(props){
     const node2 = useRef(styleInit);
     const colorIndex = colorNameVariants.findIndex(el => el === props.variant);
     const color = colorVariants[colorIndex == -1 ? 2 : colorIndex];
-    const opacity = props.opacity ? props.opacity : 0.3;
+    const opacity = props.opacity ?? 0.3;
     const styles = {
         backgroundColor: `rgba(${color},${opacity})`
     }
